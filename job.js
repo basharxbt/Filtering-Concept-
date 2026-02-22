@@ -17,22 +17,34 @@ function clickToggle(id) {
     const all = document.getElementById('all-btn');
     const interview = document.getElementById('interview-btn');
     const rejected = document.getElementById('rejected-btn');
-    if (id === 'all-btn') {
-        all.classList.add("bg-neutral-700", "text-white");
-        interview.classList.remove("bg-neutral-700", "text-white")
-        rejected.classList.remove('bg-neutral-700', "text-white")
-    }
-    else if (id === 'interview-btn') {
-        interview.classList.add("bg-neutral-700", "text-white")
-        all.classList.remove("bg-neutral-700", "text-white");
-        rejected.classList.remove('bg-neutral-700', "text-white")
-    }
 
-    else if (id === 'rejected-btn') {
-        rejected.classList.add('bg-neutral-700', "text-white")
-        interview.classList.remove("bg-neutral-700", "text-white")
-        all.classList.remove("bg-neutral-700", "text-white");
-    }
+    all.classList.remove("bg-neutral-700", "text-white");
+    interview.classList.remove("bg-neutral-700", "text-white")
+    rejected.classList.remove('bg-neutral-700', "text-white")
+
+
+    document.getElementById(id).classList.add("bg-neutral-700", "text-white");
+
+
+
+    // if (id === 'all-btn') {
+    //     filterSection.classList.add('hidden');
+
+    //     jobContainer.classList.remove('hidden');
+    // }
+    // else if (id === 'interview-btn') {
+    //     interview.classList.add("bg-neutral-700", "text-white")
+    //     all.classList.remove("bg-neutral-700", "text-white");
+    //     rejected.classList.remove('bg-neutral-700', "text-white")
+    //     filterSection.classList.remove('hidden');
+    //     jobContainer.classList.add('hidden');
+    // }
+
+    // else if (id === 'rejected-btn') {
+    //     rejected.classList.add('bg-neutral-700', "text-white")
+    //     interview.classList.remove("bg-neutral-700", "text-white")
+    //     all.classList.remove("bg-neutral-700", "text-white");
+    // }
 }
 
 
@@ -45,6 +57,7 @@ mainContainer.addEventListener('click', function (event) {
         const jobCategory = parentNode.querySelector('.jobCatagory').innerText;
         const prograss = parentNode.querySelector('.prograss').innerText;
         const description = parentNode.querySelector('.description').innerText;
+        parentNode.querySelector('.prograss').innerText = 'INTERVIEW';
 
 
         const cardInfo = {
@@ -55,9 +68,9 @@ mainContainer.addEventListener('click', function (event) {
             description
         };
 
-
         const jobExist = interviewJobsElement.find(job => job.companyName === companyName && job.jobTitle === jobTitle);
         if (!jobExist) {
+
             interviewJobsElement.push(cardInfo);
             console.log(interviewJobsElement);
 
