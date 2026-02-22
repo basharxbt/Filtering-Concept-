@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <!-- Styles  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+</head>
+
+<body class=" mx-auto pt-10 bg-[#F8FAFC]">
+    <header class="w-3/4 mx-auto">
+        <h1 class="text-2xl font-bold mb-6  text-[#002C5C]">Job Application Tracker</h1>
+
+        <div class="grid grid-cols-3 gap-10 my-10">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <p class="font-medium">Total</p>
+                <p id="total-jobs" class="text-[#002C5C] text-2xl font-bold">0</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <p class="font-medium">Interview</p>
+                <p id="interview-jobs" class="text-green-600 text-2xl font-bold">0</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <p class="font-medium">Rejected</p>
+                <p id="rejected-jobs" class="text-red-600 text-2xl font-bold">0</p>
+            </div>
+        </div>
+        <hr class="border-t-2 border-gray-200 mb-10">
+    </header>
+
+
+
+    <main>
+
+        <section id="main" class="w-3/4 mx-auto">
+            <div class="flex justify-between">
+                <h2 class="text-2xl font-semibold mb-5 text-[#002C5C]">Available Jobs</h2>
+                <p class="text-[20px] font-bold text-neutral-500"> <span>0</span>Jobs</p>
+            </div>
+            <div class=" space-x-5">
+                <button onclick="clickToggle('all-btn')" id="all-btn" class="btn px-10 ">All</button>
+                <button onclick="clickToggle('interview-btn')" id="interview-btn" class="btn">Interview</button>
+                <button onclick="clickToggle('rejected-btn')" id="rejected-btn" class="btn">Rejected</button>
+            </div>
+
+            <section id="filter-section">
+
+            </section>
+
+
+            <div id="job-container" class=" mt-5 space-y-5">
+
+
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Mobile First Corp</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">React Native Developer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $130,000 - $175,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">Build cross-platform mobile applications using React Native. Work on
+                            products used
+                            by millions of
+                            users worldwide.</p>
+                        <button class="interviewButton btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1 ">Programming Hero</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">FullStack Developer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Hybrid
+                            •
+                            Full-time
+                            •
+                            $100,000 - $150,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">As our first non-engineering hire, your mandate will be to
+                            orchestrate a
+                            movement
+                        </p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Kahf Guard</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Fronted Developer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Hybrid
+                            •
+                            Full-time
+                            •
+                            $230,000 - $275,000</p>
+                        <button class="prograss btn btn-soft btn-info">NOT APPLIED</button>
+
+                        <p class="description my-3">Design and execute referral programs, trading competitions, and
+                            leaderboard
+                            mechanics that incentivize viral sharing of P&L.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Meta</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">React Native Developer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $530,000 - $775,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">Build cross-platform mobile applications using React Native. Work on
+                            products used
+                            by millions of
+                            users worldwide.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Null</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Senior Frontend Engineer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $110,000 - $140,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">Create a unified component library for use across all Null products
+                        </p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Lemon.io</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Senior Blockchain Developer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $130,000 - $175,000</p>
+                        <button class="prograss btn btn-soft btn-info">NOT APPLIED</button>
+
+                        <p class="description my-3">Adaptability and Flexibility — the ability to onboard the project
+                            promptly after
+                            accepting it and start delivering results quickly</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Coinflow Labs</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Senior Merchant Underwriter
+                        </p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $50,000 - $75,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description  my-3">As a Senior Merchant Underwriter, you will perform critical
+                            analyses on
+                            all merchant
+                            applications.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Joyride Labs</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Founding Principal Engineer
+                        </p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $140,000 - $165,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">Build cross-platform mobile applications using React Native. Work on
+                            products used
+                            by millions of
+                            users worldwide.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Blackwing</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">
+                            Backend Engineer</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $150,000 - $250,000</p>
+                        <button class="prograss btn btn-soft btn-info">NOT APPLIED</button>
+
+                        <p class="description  my-3">Build cross-platform mobile applications using React Native. Work
+                            on
+                            products used
+                            by millions of
+                            users worldwide.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-sm flex justify-between">
+                    <div class="">
+                        <p class="companyName font-bold text-[#002C5C] text-[18px] mb-1">Fedi, Inc.</p>
+
+                        <p class="jobTittle mb-4 text-neutral-500">Community Spaces Lead</p>
+                        <p class="jobCatagory mb-3 text-neutral-500">Remote
+                            •
+                            Full-time
+                            •
+                            $30,000 - $75,000</p>
+                        <p class="prograss btn btn-soft btn-info">NOT APPLIED</p>
+
+                        <p class="description my-3">Community Spaces are free to create and give every group the power
+                            to
+                            shape their
+                            own place on Fedi, on their own terms.</p>
+                        <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+
+                    <div>
+                        <button><i class="fas fa-trash"></i></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+
+    <script src="/job.js"></script>
+</body>
+
+</html>
