@@ -6,17 +6,18 @@ totalJobs.forEach(element => {
     element.innerText = jobContainer.children.length;
 });
 
+
 let totalJobsCount = document.getElementById('totalJobCount');
 let interviewJobsElement = [];
 let rejectedJobsElement = [];
+let deletedJobsElement = [];
 let activeTab = 'all';
 
 function countCalculator() {
     interview.innerText = interviewJobsElement.length;
     rejected.innerText = rejectedJobsElement.length;
 }
-// const totalJobsElement = document.getElementById('total-jobs');
-// totalJobsElement.innerText = totalJobs;
+
 
 
 function totalCount() {
@@ -77,7 +78,7 @@ function clickToggle(id) {
         jobContainer.classList.add("hidden");
         renderRejectedElement()
         totalCount()
-        // totalJobsCount.innerText = rejectedJobsElement.length;
+
     }
 }
 
@@ -154,12 +155,44 @@ mainContainer.addEventListener('click', function (event) {
 
 
     }
+    else if (event.target.classList.contains('delete-btn')) {
+        const parentNode = event.target.closest('.bg-white');
 
+        const companyName = parentNode.querySelector('.companyName').innerText;
+        const jobTitle = parentNode.querySelector('.jobTittle').innerText;
+        const jobCategory = parentNode.querySelector('.jobCatagory').innerText;
+        const prograss = parentNode.querySelector('.prograss').innerText;
+        const description = parentNode.querySelector('.description').innerText;
+
+
+        const cardInfo = {
+            companyName,
+            jobTitle,
+            jobCategory,
+            prograss,
+            description
+        };
+
+
+        interviewJobsElement = interviewJobsElement.filter(job => !(job.companyName === companyName && job.jobTitle == jobTitle));
+        rejectedJobsElement = rejectedJobsElement.filter(job => !(job.companyName === companyName && job.jobTitle == jobTitle));
+
+        parentNode.remove();
+
+
+        if (activeTab === 'interview-btn') renderInterviewElement();
+        if (activeTab === 'rejected-btn') renderRejectedElement();
+
+        totalJobs.forEach(element => {
+            element.innerText = jobContainer.children.length;
+        });
+        countCalculator();
+        totalCount();
+
+    }
 })
 
-// mainContainer.addEventListener('click', function (event) {
 
-// })
 
 
 
@@ -200,7 +233,7 @@ function renderInterviewElement() {
                 </div>
 
                 <div>
-                    <button><i class="fas fa-trash"></i></button>
+                    <button><i class="delete-btn fas fa-trash"></i></button>
                 </div>
 
 
@@ -215,6 +248,9 @@ function renderInterviewElement() {
 
 
 }
+
+
+
 function renderRejectedElement() {
     filterSection.innerHTML = '';
     let empty = document.createElement('div');
@@ -250,7 +286,7 @@ function renderRejectedElement() {
                 </div>
 
                 <div>
-                    <button><i class="fas fa-trash"></i></button>
+                    <button><i class="delete-btn fas fa-trash"></i></button>
                 </div>
 
 
