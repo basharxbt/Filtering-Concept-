@@ -7,6 +7,7 @@ totalJobs.innerText = jobContainer.children.length;
 
 let interviewJobsElement = [];
 let rejectedJobsElement = [];
+let activeTab = 'all';
 
 function countCalculator() {
     interview.innerText = interviewJobsElement.length;
@@ -27,6 +28,7 @@ function clickToggle(id) {
     const all = document.getElementById('all-btn');
     const interview = document.getElementById('interview-btn');
     const rejected = document.getElementById('rejected-btn');
+    activeTab = id;
 
     all.classList.remove("bg-neutral-700", "text-white");
     interview.classList.remove("bg-neutral-700", "text-white")
@@ -53,6 +55,7 @@ function clickToggle(id) {
 
 
 mainContainer.addEventListener('click', function (event) {
+
     if (event.target.classList.contains('interviewButton')) {
         const parentNode = event.target.parentNode.parentNode;
 
@@ -79,7 +82,9 @@ mainContainer.addEventListener('click', function (event) {
 
 
         }
-        rejectedJobsElement = rejectedJobsElement.filter(job => job.companyName !== companyName)
+        rejectedJobsElement = rejectedJobsElement.filter(job => job.companyName !== companyName && job.jobTitle !== jobTitle)
+        if (activeTab === 'interview-btn') renderInterviewElement();
+        if (activeTab === 'rejected-btn') renderRejectedElement();
 
         countCalculator()
 
@@ -111,7 +116,9 @@ mainContainer.addEventListener('click', function (event) {
 
 
         }
-        interviewJobsElement = interviewJobsElement.filter(job => job.companyName !== companyName)
+        interviewJobsElement = interviewJobsElement.filter(job => job.companyName !== companyName && job.jobTitle !== jobTitle)
+        if (activeTab === 'rejected-btn') renderRejectedElement();
+        if (activeTab === 'interview-btn') renderInterviewElement();
 
         countCalculator()
 
@@ -141,12 +148,12 @@ function renderInterviewElement() {
 
                     <p class="jobTittle mb-4 text-neutral-500">${job.jobTitle}</p>
                     <p class="jobCatagory mb-3 text-neutral-500">${job.jobCategory}</p>
-                    <button class="prograss btn btn-soft btn-info">INTERVIEW</button>
+                    <p class="prograss btn btn-soft btn-info">INTERVIEW</p>
 
                     <p class="description my-3">${job.description}</p>
-                    <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+                    <button class="interviewButton btn btn-outline btn-success mx-2">INTERVIEW</button>
 
-                    <button class="btn btn-outline btn-error">REJECTED</button>
+                    <button class= " rejectedButton btn btn-outline btn-error">REJECTED</button>
                 </div>
 
                 <div>
@@ -175,12 +182,12 @@ function renderRejectedElement() {
 
                     <p class="jobTittle mb-4 text-neutral-500">${job.jobTitle}</p>
                     <p class="jobCatagory mb-3 text-neutral-500">${job.jobCategory}</p>
-                    <button class="prograss btn btn-soft btn-info">INTERVIEW</button>
+                    <p class="prograss btn btn-soft btn-info">REJECTED</p>
 
                     <p class="description my-3">${job.description}</p>
-                    <button class="btn btn-outline btn-success mx-2">INTERVIEW</button>
+                    <button class="interviewButton btn btn-outline btn-success mx-2">INTERVIEW</button>
 
-                    <button class="btn btn-outline btn-error">REJECTED</button>
+                    <button class="rejectedButton btn btn-outline btn-error">REJECTED</button>
                 </div>
 
                 <div>
