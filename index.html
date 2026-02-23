@@ -20,7 +20,7 @@
         <div class="grid grid-cols-3 gap-10 my-10">
             <div class="bg-white p-4 rounded-lg shadow-md">
                 <p class="font-medium">Total</p>
-                <p id="total-jobs" class="text-[#002C5C] text-2xl font-bold">0</p>
+                <p class="total-jobs text-[#002C5C] text-2xl font-bold">0</p>
             </div>
             <div class="bg-white p-4 rounded-lg shadow-md">
                 <p class="font-medium">Interview</p>
@@ -41,7 +41,8 @@
         <section id="main" class="w-3/4 mx-auto">
             <div class="flex justify-between">
                 <h2 class="text-2xl font-semibold mb-5 text-[#002C5C]">Available Jobs</h2>
-                <p class="text-[20px] font-bold text-neutral-500"> <span>0</span>Jobs</p>
+                <p class="text-[20px] font-bold text-neutral-500"> <span id="totalJobCount"
+                        class="total-jobs mx-1">0</span>Jobs</p>
             </div>
             <div class=" space-x-5">
                 <button onclick="clickToggle('all-btn')" id="all-btn" class="btn px-10 ">All</button>
@@ -52,7 +53,7 @@
 
 
             <!-- filter section -->
-            <section id="filter-section" class="hidden mt-5">
+            <section id="filter-section" class="hidden mt-5 ">
                 <!-- <div
                     class="bg-white p-5 rounded-lg shadow-sm  flex-col items-center justify-center text-center py-30 space-y-2  ">
 

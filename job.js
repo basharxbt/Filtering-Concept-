@@ -1,10 +1,12 @@
 const jobContainer = document.getElementById('job-container');
 const interview = document.getElementById('interview-jobs');
 const rejected = document.getElementById('rejected-jobs');
-const totalJobs = document.getElementById('total-jobs')
-totalJobs.innerText = jobContainer.children.length;
+const totalJobs = document.querySelectorAll('.total-jobs');
+totalJobs.forEach(element => {
+    element.innerText = jobContainer.children.length;
+});
 
-
+let totalJobsCount = document.getElementById('totalJobCount');
 let interviewJobsElement = [];
 let rejectedJobsElement = [];
 let activeTab = 'all';
@@ -17,8 +19,30 @@ function countCalculator() {
 // totalJobsElement.innerText = totalJobs;
 
 
+function totalCount() {
+    if (activeTab === 'all-btn') {
+        totalJobsCount.innerText = jobContainer.children.length;
+    }
+    else if (activeTab === "interview-btn") {
+        if (interviewJobsElement.length === 0) {
+            totalJobsCount.innerText = 0;
+            return;
+        }
+        else {
+            totalJobsCount.innerText = `${interviewJobsElement.length} of ${jobContainer.children.length}`;
+        }
+    }
+    else if (activeTab === 'rejected-btn') {
+        if (rejectedJobsElement.length === 0) {
+            totalJobsCount.innerText = 0;
+            return;
+        }
+        else {
+            totalJobsCount.innerText = `${rejectedJobsElement.length} of ${jobContainer.children.length}`;
+        }
 
-
+    }
+}
 
 const mainContainer = document.querySelector('main');
 const filterSection = document.getElementById('filter-section');
@@ -40,16 +64,20 @@ function clickToggle(id) {
         filterSection.classList.remove("hidden");
         jobContainer.classList.add("hidden");
         renderInterviewElement()
+        totalCount()
 
     }
     else if (id === "all-btn") {
         filterSection.classList.add("hidden");
         jobContainer.classList.remove("hidden");
+        totalCount()
     }
     else if (id === "rejected-btn") {
         filterSection.classList.remove("hidden");
         jobContainer.classList.add("hidden");
         renderRejectedElement()
+        totalCount()
+        // totalJobsCount.innerText = rejectedJobsElement.length;
     }
 }
 
@@ -87,6 +115,7 @@ mainContainer.addEventListener('click', function (event) {
         if (activeTab === 'rejected-btn') renderRejectedElement();
 
         countCalculator()
+        totalCount()
 
 
     }
@@ -121,6 +150,7 @@ mainContainer.addEventListener('click', function (event) {
         if (activeTab === 'interview-btn') renderInterviewElement();
 
         countCalculator()
+        totalCount()
 
 
     }
