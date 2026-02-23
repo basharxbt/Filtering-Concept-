@@ -137,8 +137,21 @@ mainContainer.addEventListener('click', function (event) {
 
 function renderInterviewElement() {
     filterSection.innerHTML = '';
+    let empty = document.createElement('div');
+    if (interviewJobsElement.length === 0) {
+        empty.innerHTML = `<div
+                class="bg-white p-5 rounded-lg shadow-sm  flex-col items-center justify-center text-center py-30 space-y-2 mt-5 ">
+
+                <i class="fa-solid fa-file-lines fa-5x" style="color: rgb(116, 192, 252);"></i>
+                <h3 class="font-bold text-2xl text-[#002C5C]">No jobs available</h3>
+                <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+            </div> `
+        filterSection.appendChild(empty);
+
+    }
     for (let job of interviewJobsElement) {
         let div = document.createElement('div');
+
 
         div.innerHTML = `
         
@@ -165,14 +178,30 @@ function renderInterviewElement() {
         `
         filterSection.appendChild(div);
 
+
+
+
     }
 
 
 }
 function renderRejectedElement() {
     filterSection.innerHTML = '';
+    let empty = document.createElement('div');
+    if (rejectedJobsElement.length === 0) {
+        empty.innerHTML = `<div
+                    class="bg-white p-5 rounded-lg shadow-sm  flex-col items-center justify-center text-center py-30 space-y-2 mt-5 ">
+
+                    <i class="fa-solid fa-file-lines fa-5x" style="color: rgb(116, 192, 252);"></i>
+                    <h3 class="font-bold text-2xl text-[#002C5C]">No jobs available</h3>
+                    <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+                </div> `
+        filterSection.appendChild(empty);
+
+    }
     for (let job of rejectedJobsElement) {
         let div = document.createElement('div');
+
 
         div.innerHTML = `
         
@@ -198,6 +227,10 @@ function renderRejectedElement() {
 
         `
         filterSection.appendChild(div);
+
+
+
+
 
     }
 
