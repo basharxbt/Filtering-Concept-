@@ -1,5 +1,7 @@
 {
-    "cSpell.words": [
-        "childrenelementcount"
-    ]
+  "cSpell.words": [
+    "childrenelementcount",
+    "getelementbyclassname",
+    "getelementbyid"
+  ]
 }
