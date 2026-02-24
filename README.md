@@ -31,11 +31,6 @@ querySelectorAll also uses CSS selectors, but it returns all matching elements i
 To create a new element in JavaScript, first we use document.createElement() and specify the type of element we want to create.
 Then we insert it into the webpage using methods like appendChild() inside a parent element.
 
-- So the basic process is:
-- Create the element
-- Add content or attributes
-- Insert it into the DOM
-
 <!--  -->
 
 3. What is Event Bubbling? And how does it work?

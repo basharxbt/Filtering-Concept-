@@ -69,14 +69,6 @@ function clickToggle(id) {
   }
 }
 
-// Testing Funtion
-
-// function prograss(){
-//     if()
-// }
-
-// Event Listeners
-
 mainContainer.addEventListener("click", function (event) {
   if (event.target.classList.contains("interviewButton")) {
     const parentNode = event.target.parentNode.parentNode;
@@ -87,9 +79,6 @@ mainContainer.addEventListener("click", function (event) {
     const prograss = parentNode.querySelector(".prograss").innerText;
     const description = parentNode.querySelector(".description").innerText;
 
-    if (event.target.classList.contains("rejectedButton")) {
-      parentNode.querySelector(".prograss").innerText = "ReJECTED";
-    }
     parentNode.querySelector(".prograss").innerText = "INTERVIEW";
 
     const cardInfo = {
@@ -100,22 +89,12 @@ mainContainer.addEventListener("click", function (event) {
       description,
     };
 
-    // const allCards = jobContainer.querySelectorAll(".bg-white");
-    // allCards.forEach((card) => {
-    //   if (
-    //     card.querySelector(".companyName").innerText === companyName &&
-    //     card.querySelector(".jobTittle").innerText === jobTitle
-    //   ) {
-    //     card.querySelector(".prograss").innerText = "r";
-    //   }
-    // });
-
     jobContainer.querySelectorAll(".bg-white").forEach((card) => {
       if (
         card.querySelector(".companyName").innerText === companyName &&
         card.querySelector(".jobTittle").innerText === jobTitle
       ) {
-        card.querySelector(".prograss").innerText = "INTERVIEW"; // ✅ updates All tab card
+        card.querySelector(".prograss").innerText = "INTERVIEW";
       }
     });
 
@@ -150,16 +129,6 @@ mainContainer.addEventListener("click", function (event) {
       prograss: "REJECTED",
       description,
     };
-
-    // const allCards = jobContainer.querySelectorAll(".bg-white");
-    // allCards.forEach((card) => {
-    //   if (
-    //     card.querySelector(".companyName").innerText === companyName &&
-    //     card.querySelector(".jobTittle").innerText === jobTitle
-    //   ) {
-    //     card.querySelector(".prograss").innerText = "REJECTED";
-    //   }
-    // });
 
     jobContainer.querySelectorAll(".bg-white").forEach((card) => {
       if (
