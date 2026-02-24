@@ -7,18 +7,18 @@ Ans;
 Difference Between getElementById and getElementbyClassname:
 
 getElementById is used to select one element by its id.
-Since an id should be unique in a webpage, it always returns only one element.
+id should be unique in a webpage, it always returns only one element.
 
 And
 
 getElementsByClassName is used to select elements by their class name.
-It can return multiple elements because many elements can share the same class. It returns a collection of elements. ;
+It can return multiple elements because many elements can share the same class.
 
 <!--  -->
 
 Difference Between querySelector and querySelectorAll:
 
-querySelector is more flexible. It uses CSS selectors and returns the first element that matches the selector.
+querySelector is fast. It uses CSS selectors and returns the first element that matches the selector.
 
 And
 
@@ -32,11 +32,8 @@ To create a new element in JavaScript, first we use document.createElement() and
 Then we insert it into the webpage using methods like appendChild() inside a parent element.
 
 - So the basic process is:
-
 - Create the element
-
 - Add content or attributes
-
 - Insert it into the DOM
 
 <!--  -->
