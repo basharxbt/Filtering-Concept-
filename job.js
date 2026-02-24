@@ -233,7 +233,7 @@ function renderInterviewElement() {
                 </div>
 
                 <div>
-                    <button><i class="delete-btn fas fa-trash"></i></button>
+                    <button><i class="delete-btn fas fa-trash text-2xl cursor-pointer"></i></button>
                 </div>
 
 
@@ -286,7 +286,7 @@ function renderRejectedElement() {
                 </div>
 
                 <div>
-                    <button><i class="delete-btn fas fa-trash"></i></button>
+                    <button><i class="delete-btn fas fa-trash text-2xl cursor-pointer"></i></button>
                 </div>
 
 
